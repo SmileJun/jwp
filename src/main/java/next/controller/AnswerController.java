@@ -16,12 +16,10 @@ import core.mvc.ModelAndView;
 import core.utils.ServletRequestUtils;
 
 public class AnswerController extends AbstractController{
-
 	private static final Logger logger = LoggerFactory.getLogger(AnswerController.class);
 
 	private AnswerDao answerDao = new AnswerDao();
 	private QuestionDao questionDao = new QuestionDao();
-	private Question question;
 	
 	@Override
 	public ModelAndView execute(HttpServletRequest request,
@@ -30,7 +28,7 @@ public class AnswerController extends AbstractController{
 		String writer = ServletRequestUtils.getStringParameter(request, "writer");
 		String contents = ServletRequestUtils.getStringParameter(request, "contents");
 
-		question = questionDao.findById(questionId);
+		Question question = questionDao.findById(questionId);
 		answerDao.insert(new Answer(writer, contents, questionId));
 		questionDao.update(questionId);
 		

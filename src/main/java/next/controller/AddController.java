@@ -17,7 +17,7 @@ import core.utils.ServletRequestUtils;
 
 public class AddController extends AbstractController {
 	private static final Logger logger = LoggerFactory.getLogger(AddController.class);
-	
+
 	private QuestionDao questionDao = new QuestionDao();
 
 	@Override
