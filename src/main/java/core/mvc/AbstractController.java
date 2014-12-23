@@ -7,5 +7,5 @@ public abstract class AbstractController implements Controller {
 	
 	protected ModelAndView jsonView() {
 		return new ModelAndView(new JsonView());
-	}	
+	}
 }
