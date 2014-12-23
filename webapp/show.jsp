@@ -35,7 +35,7 @@
 
 		<h3>답변</h3>
 		<div class="answerWrite">
-			<form method="post">
+			<form action="/Answer.next" method="post">
 				<input type="hidden" name="questionId"
 					value="${question.questionId}">
 				<p>

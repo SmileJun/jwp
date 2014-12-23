@@ -40,7 +40,7 @@ public class QuestionDao {
 		
 		return jdbcTemplate.list(sql, rm);
 	}
-
+	
 	public Question findById(long questionId) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
 		String sql = "SELECT questionId, writer, title, contents, createdDate, countOfComment FROM QUESTIONS "
@@ -59,5 +59,13 @@ public class QuestionDao {
 		};
 		
 		return jdbcTemplate.executeQuery(sql, rm, questionId);
+	}
+	
+	public void update(long questionId) {
+		JdbcTemplate jdbcTemplate = new JdbcTemplate();
+		String sql = "UPDATE QUESTIONS SET countOfComment=countOfComment + 1 "
+				+ "WHERE questionId = ?";
+		jdbcTemplate.executeUpdate(sql, questionId); 
+				
 	}
 }
